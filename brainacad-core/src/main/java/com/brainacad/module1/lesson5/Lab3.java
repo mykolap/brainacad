@@ -21,7 +21,7 @@ public class Lab3 {
         final Lab3 lab3 = new Lab3();
         for (int i = 0; i <= 9; i++) {
             for (int j = 0; j <= 9; j++) {
-                System.out.println(lab3.getColumn(i, j));
+                System.out.print(lab3.getColumn(i, j));
             }
         }
     }
@@ -40,7 +40,7 @@ public class Lab3 {
 
     private String getZeroColumn(int i) {
         String zeroColumn = (i == 0) ? "*" : String.valueOf(i);
-        return zeroColumn + " | ";
+        return zeroColumn + " |";
     }
 
     private String getLastColumn(int i, int j) {
@@ -54,15 +54,19 @@ public class Lab3 {
     private String getRegularColumn(int i, int j) {
         String columnValue;
         if (i == 0) {
-            columnValue = " " + j;
+            columnValue = getFormattedNumber(j);
         } else {
-            columnValue = " " + i * j;
+            columnValue = getFormattedNumber(i * j);
         }
         return columnValue;
     }
 
-    protected int getLengthOfDigit(int i) {
-        return (int) (Math.log10(i) + 1);
+    private String getFormattedNumber(int number) {
+        String dest = String.valueOf(number);
+        while (dest.length() < 3) {
+            dest = " " + dest;
+        }
+        return dest;
     }
 
 }
