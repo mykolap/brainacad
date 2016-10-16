@@ -1,8 +1,6 @@
 package com.brainacad.module1.lesson5;
 
-public class Lab3 {
-
-    /*
+/*
     Write a program to produce the multiplication table of 1 to 9 as shown
     using two nested for-loops:
      * |  1  2  3  4  5  6  7  8  9
@@ -17,23 +15,42 @@ public class Lab3 {
      8 |  8 16 24 32 40 48 56 64 72
      9 |  9 18 27 36 45 54 63 72 81
          */
+public class Lab3 {
+
+    private int maxNumber;
+    private int columnWidth;
+
+    public Lab3(int maxNumber, int columnWidth) {
+        this.maxNumber = maxNumber;
+        this.columnWidth = columnWidth;
+    }
+
     public static void main(String[] args) {
-        final Lab3 lab3 = new Lab3();
-        for (int i = 0; i <= 9; i++) {
-            for (int j = 0; j <= 9; j++) {
-                System.out.print(lab3.getColumn(i, j));
+        Lab3 lab3_9 = new Lab3(9, 3);
+        System.out.println(lab3_9.getPifagorTable());
+
+        Lab3 lab3_3 = new Lab3(3, 3);
+        System.out.println(lab3_3.getPifagorTable());
+
+        Lab3 lab3_12 = new Lab3(12, 4);
+        System.out.println(lab3_12.getPifagorTable());
+    }
+
+    public String getPifagorTable() {
+        String table = "";
+        for (int i = 0; i <= maxNumber; i++) {
+            for (int j = 0; j <= maxNumber; j++) {
+                table += getColumn(i, j);
             }
         }
-
-        Lab1 lab1 = new Lab1();
-        lab1.myBestFunc();
+        return table;
     }
 
     private String getColumn(int i, int j) {
         String columnValue;
         if (j == 0) {
             columnValue = getZeroColumn(i);
-        } else if (j == 9) {
+        } else if (j == maxNumber) {
             columnValue = getLastColumn(i, j);
         } else {
             columnValue = getRegularColumn(i, j);
@@ -43,13 +60,18 @@ public class Lab3 {
 
     private String getZeroColumn(int i) {
         String zeroColumn = (i == 0) ? "*" : String.valueOf(i);
-        return zeroColumn + " |";
+        return getFormattedColumn(zeroColumn, columnWidth - 2) + " |";
     }
 
     private String getLastColumn(int i, int j) {
         String columnValue = getRegularColumn(i, j) + "\n";
         if (i == 0) {
-            columnValue += "-------------------------------\n";
+            for (int k = 0; k <= maxNumber; k++) {
+                for (int l = 0; l < columnWidth; l++) {
+                    columnValue += "-";
+                }
+            }
+            columnValue += "\n";
         }
         return columnValue;
     }
@@ -64,9 +86,13 @@ public class Lab3 {
         return columnValue;
     }
 
-    private String getFormattedNumber(int number) {
-        String dest = String.valueOf(number);
-        while (dest.length() < 3) {
+    String getFormattedNumber(int number) {
+        return getFormattedColumn(String.valueOf(number), columnWidth);
+    }
+
+    private String getFormattedColumn(String value, int width) {
+        String dest = value;
+        while (dest.length() < width) {
             dest = " " + dest;
         }
         return dest;
