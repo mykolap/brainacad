@@ -12,6 +12,8 @@ public class Lesson5 {
         System.out.println(new MonthDetector(2).getString());
         System.out.println(new MonthDetector(5).getString());
         System.out.println(new MonthDetector(10).getString());
+
+        System.out.println("test");
     }
 
 }
