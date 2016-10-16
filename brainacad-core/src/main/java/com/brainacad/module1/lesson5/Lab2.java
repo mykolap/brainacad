@@ -24,6 +24,8 @@ public class Lab2 {
         int y = scanner.nextInt();
         String yAsString = lab2.getNumberAsStringNestedIf(y);
         System.out.println(yAsString);
+
+        Lab1 lab1 = new Lab1();
     }
 
     private String getNumberAsStringSwitch(int x) {

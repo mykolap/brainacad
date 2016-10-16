@@ -24,6 +24,9 @@ public class Lab3 {
                 System.out.print(lab3.getColumn(i, j));
             }
         }
+
+        Lab1 lab1 = new Lab1();
+        lab1.myBestFunc();
     }
 
     private String getColumn(int i, int j) {

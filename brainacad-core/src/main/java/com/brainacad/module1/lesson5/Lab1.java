@@ -24,6 +24,16 @@ public class Lab1 {
                 }
             }
         }
+
+        com.brainacad.module2.lesson1.Lab1 lab1 = null;
+    }
+
+    public void myBestFunc() {
+        getParam(1, 2, false);
+    }
+
+    private int getParam(int a, int b, boolean c) {
+        return 0;
     }
 
 }
