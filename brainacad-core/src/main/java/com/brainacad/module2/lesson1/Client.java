@@ -9,4 +9,8 @@ public class Client {
         int mySpeed = lab3.getSpeed();
 //        int mySpeed = lab3.speed;
     }
+
+    public static void increaseSpeed(Lab3 lab3) {
+        lab3.setSpeed(lab3.getSpeed() * 2);
+    }
 }

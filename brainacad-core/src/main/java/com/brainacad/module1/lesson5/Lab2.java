@@ -2,7 +2,7 @@ package com.brainacad.module1.lesson5;
 
 import java.util.Scanner;
 
-public class Lab2 {
+strictfp public class Lab2 {
 
     /*
     Write a program which prompts user for the number "X", reads it from the keyboard, and saves it in an int variable called "x".
@@ -26,6 +26,7 @@ public class Lab2 {
         System.out.println(yAsString);
 
         Lab1 lab1 = new Lab1();
+
     }
 
     private String getNumberAsStringSwitch(int x) {
