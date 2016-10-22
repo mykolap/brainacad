@@ -1,5 +1,7 @@
 package com.brainacad.module1.lesson5;
 
+import com.brainacad.FormatUtils;
+
 /*
     Write a program to produce the multiplication table of 1 to 9 as shown
     using two nested for-loops:
@@ -60,7 +62,7 @@ public class Lab3 {
 
     private String getZeroColumn(int i) {
         String zeroColumn = (i == 0) ? "*" : String.valueOf(i);
-        return getFormattedColumn(zeroColumn, columnWidth - 2) + " |";
+        return FormatUtils.getFormattedColumn(zeroColumn, columnWidth - 2) + " |";
     }
 
     private String getLastColumn(int i, int j) {
@@ -77,25 +79,8 @@ public class Lab3 {
     }
 
     private String getRegularColumn(int i, int j) {
-        String columnValue;
-        if (i == 0) {
-            columnValue = getFormattedNumber(j);
-        } else {
-            columnValue = getFormattedNumber(i * j);
-        }
-        return columnValue;
-    }
-
-    String getFormattedNumber(int number) {
-        return getFormattedColumn(String.valueOf(number), columnWidth);
-    }
-
-    private String getFormattedColumn(String value, int width) {
-        String dest = value;
-        while (dest.length() < width) {
-            dest = " " + dest;
-        }
-        return dest;
+        int intValue = (i == 0) ? j : i * j;
+        return FormatUtils.getFormattedNumber(intValue, columnWidth);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.brainacad.module1.lesson5;
 
+import com.brainacad.FormatUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -49,11 +50,6 @@ public class Lab3Test {
 
     @Test
     public void testGetFormattedNumber() {
-        Lab3 lab3 = new Lab3(0, 3);
-        Assert.assertEquals("  9", lab3.getFormattedNumber(9));
-        Assert.assertEquals(" 10", lab3.getFormattedNumber(10));
-        Assert.assertEquals(" 99", lab3.getFormattedNumber(99));
-        Assert.assertEquals("100", lab3.getFormattedNumber(100));
     }
 
 }
