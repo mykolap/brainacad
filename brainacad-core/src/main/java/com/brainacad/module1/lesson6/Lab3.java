@@ -21,7 +21,7 @@ public class Lab3 {
         int[][] matrix = new int[matrixSize][matrixSize];
         for (int i = 0; i < matrixSize; i++) {
             for (int j = 0; j < matrixSize; j++) {
-                matrix[i][j] = i*matrixSize + j + 1;
+                matrix[i][j] = i + j*matrixSize + 1;
             }
         }
         return matrix;
