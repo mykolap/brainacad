@@ -1,7 +1,5 @@
 package com.brainacad.module1.lesson6;
 
-import org.apache.commons.math3.stat.descriptive.rank.Median;
-
 import java.util.Arrays;
 
 /**
@@ -17,6 +15,8 @@ public class Lab2 {
         Lab2 lab2 = new Lab2();
         System.out.println(lab2.maximum(m));
         System.out.println(lab2.minimum(m));
+        System.out.println(lab2.median(m));
+        System.out.println(lab2.avg(m));
     }
 
     public int maximum(int[] arr) {
@@ -47,6 +47,14 @@ public class Lab2 {
             }
         }
         return minimum;
+    }
+
+    public double avg(int[] arr) {
+        int sum = 0;
+        for (int element: arr) {
+            sum += element;
+        }
+        return sum/arr.length;
     }
 
     public double median(int[] arr) {

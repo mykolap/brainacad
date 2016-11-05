@@ -18,6 +18,10 @@ public class Lab2Test {
         expectedResult = 6.5;
         result = lab2.median(new int[] {7,1,6,2,1_000,1_000_000});
         Assert.assertEquals(expectedResult, result, 0.01);
+
+        expectedResult = Integer.MAX_VALUE;
+        result = lab2.median(new int[] {Integer.MAX_VALUE,Integer.MAX_VALUE});
+        Assert.assertEquals(expectedResult, result, 0.01);
     }
 
 }

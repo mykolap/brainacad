@@ -11,6 +11,6 @@ Example: For h = 4 the method should print the pyramid
  */
 public class Lab6 {
     public static void main(String[] args) {
-        MyPyramid.printPyramid(9);
+        new MyPyramid().printPyramid(9);
     }
 }

@@ -2,6 +2,10 @@ package com.brainacad;
 
 public class FormatUtils {
 
+    private FormatUtils() {
+
+    }
+
     public static String getFormattedNumber(int number, int width) {
         return getFormattedColumn(String.valueOf(number), width);
     }
