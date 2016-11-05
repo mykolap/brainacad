@@ -14,4 +14,10 @@ xi Initial position =0
 Declare Acceleration value field as a constant;
  */
 public class Lab7 {
+    public static void main(String[] args) {
+        GravityCalculator gravityCalculator1 = new GravityCalculator();
+        System.out.println("after 100 sec " + gravityCalculator1.calcDist(100));
+        GravityCalculator gravityCalculator2 = new GravityCalculator(10, 100_000);
+        System.out.println("after 100 sec " + gravityCalculator2.calcDist(100));
+    }
 }

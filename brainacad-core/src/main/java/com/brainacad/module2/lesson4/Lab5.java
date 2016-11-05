@@ -8,4 +8,17 @@ that takes as parameter an integer n, and computes
 and returns the value of π approximated to the first n terms of the series.
  */
 public class Lab5 {
+    public static void main(String[] args) {
+        System.out.println(MyCalc.calcPi(1));
+        System.out.println(MyCalc.calcPi(2));
+        System.out.println(MyCalc.calcPi(4));
+        System.out.println(MyCalc.calcPi(8));
+        System.out.println(MyCalc.calcPi(16));
+        System.out.println(MyCalc.calcPi(32));
+        System.out.println(MyCalc.calcPi(64));
+        System.out.println(MyCalc.calcPi(128));
+        System.out.println(MyCalc.calcPi(256));
+        System.out.println(MyCalc.calcPi(512));
+        System.out.println(MyCalc.calcPi(1024));
+    }
 }
