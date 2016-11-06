@@ -2,17 +2,29 @@ package com.brainacad.module2.lesson4;
 
 public class MyPyramid {
     public void printPyramid(int n) {
-        for (int i = n, currentRow = 1; i > 0; i--, currentRow++) {
-            for (int j = 1; j < i; j++) {
-                System.out.print(" ");
-            }
-            for (int j = 1; j <= currentRow; j++) {
-                System.out.print(j);
-            }
-            for (int j = currentRow - 1; j >= 1; j--) {
-                System.out.print(j);
-            }
-            System.out.println();
+        System.out.println(getPyramid(n));
+    }
+
+    private String getPyramid(int n) {
+        String str = "";
+        for (int currentRow = 1; currentRow <= n; currentRow++) {
+            str += getLine(currentRow, n);
+            str += "\n";
         }
+        return str;
+    }
+
+    private String getLine(int currentRow, int n) {
+        String str = "";
+        for (int j = 0; j < n - currentRow; j++) {
+            str += " ";
+        }
+        for (int j = 1; j <= currentRow; j++) {
+            str += j;
+        }
+        for (int j = currentRow - 1; j > 0; j--) {
+            str += j;
+        }
+        return str;
     }
 }
