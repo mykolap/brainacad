@@ -16,4 +16,10 @@ Create class Main, which will create five instances of class InitTest
   on console.
  */
 public class Lab5 {
+    public static void main(String[] args) {
+        for (int i = 0; i < 5; i++) {
+            InitTest initTest = new InitTest();
+            System.out.println(initTest.getId());
+        }
+    }
 }
