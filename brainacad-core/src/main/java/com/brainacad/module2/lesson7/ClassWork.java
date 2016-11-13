@@ -21,5 +21,10 @@ public class ClassWork {
         Arrays.sort(birds, new BirdSpeedComparator());
 
         System.out.println(Arrays.toString(birds));
+
+        String[] arr = {"one", "two"};
+        String[] strings = "hello word hi".split("r");
+        System.out.println(strings[0]);
+        System.out.println(strings.length);
     }
 }
