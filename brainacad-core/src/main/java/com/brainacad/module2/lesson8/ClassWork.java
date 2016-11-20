@@ -4,11 +4,14 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.util.Date;
+
 /**
  * Created by Alex on 13.11.2016.
  */
 public class ClassWork {
     public static void main(String[] args) {
+
 //        StringBuilder stringBuilder = new StringBuilder("start");
 //        stringBuilder.replace(2,4, "bbcc");
 //        for (int i = 0; i < 100; i++) {
@@ -34,18 +37,18 @@ public class ClassWork {
 
 //        String str = "say \"Hello\"";
 //        System.out.println(str);
-        Pattern pattern = Pattern.compile("m(\\d+)o(\\d+)");
-
-        Matcher matcher = pattern.matcher("m22o15");
-        System.out.println(matcher.matches());
-
-        System.out.println(matcher.groupCount());
-        String module = matcher.group(1);
-        String object = matcher.group(2);
-
-        System.out.println(module);
-        System.out.println(object);
-
+//        Pattern pattern = Pattern.compile("m(\\d+)o(\\d+)");
+//
+//        Matcher matcher = pattern.matcher("m22o15");
+//        System.out.println(matcher.matches());
+//
+//        System.out.println(matcher.groupCount());
+//        String module = matcher.group(1);
+//        String object = matcher.group(2);
+//
+//        System.out.println(module);
+//        System.out.println(object);
+//
 
 //
 //        matcher = pattern.matcher("myemail@local.com12");
