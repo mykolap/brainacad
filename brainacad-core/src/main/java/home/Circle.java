@@ -21,4 +21,10 @@ public class Circle extends Shape {
     public double calcSquare() {
         return 5;
     }
+
+    @Override
+    public Circle getSomeObj() {
+        return new Circle("red");
+    }
+
 }

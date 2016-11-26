@@ -13,4 +13,8 @@ public abstract class Shape {
     public Shape() {
         System.out.println("default super called");
     }
+
+    protected Shape getSomeObj() {
+        return null;
+    }
 }
