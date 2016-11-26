@@ -22,13 +22,19 @@ package com.brainacad.module2.lesson14;
 public class Lab2 {
 
     public static void main(String[] args) {
+        Integer[] integers = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int calcInt = calcNum(integers, 3);
+        System.out.println(calcInt);
 
+        Double[] doubles = new Double[]{1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9};
+        int calcDouble = calcNum(doubles, 3.0);
+        System.out.println(calcDouble);
     }
 
-    public static <T extends Number> int calcNum(T[] arr, T elem) {
+    public static <T extends Number & Comparable<T>> int calcNum(T[] arr, T elem) {
         int count = 0;
         for (T element : arr) {
-            if (element.doubleValue() > elem.doubleValue()) {
+            if (element.compareTo(elem) > 0) {
                 count++;
             }
         }
