@@ -1,7 +1,5 @@
 package com.brainacad.module2.lesson13;
 
-import java.util.Arrays;
-
 /**
  * Created by Admin on 11/26/2016.
  */
@@ -13,6 +11,11 @@ public class ClassWork {
         System.out.println(Fruits.GRAPE);
 
         MyBox<Integer> myVar;
+
+        "bbcccdaa".chars().distinct().forEach(intChar -> System.out.print((char) intChar));
+        System.out.println();
+        String result = "bbcccdaa".codePoints().distinct().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
+        System.out.println(result);
     }
 
     @Override
