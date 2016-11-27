@@ -1,6 +1,7 @@
 package com.brainacad.module2.lesson14;
 
-import java.util.Arrays;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  Open project called  TestGenerics2 (from 2-14-2 lab).
@@ -20,22 +21,34 @@ public class Lab3 {
 
     public static void main(String[] args) {
         Integer[] integers = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
-        Integer calcInt = (int) calcSum(integers, 3);
+        Number calcInt = (int) calcSum(integers, 3);
         System.out.println(calcInt);
 
         Double[] doubles = new Double[]{1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9};
-        Double calcDouble = calcSum(doubles, 3.0);
+        Number calcDouble = calcSum(doubles, 3.0);
         System.out.println(calcDouble);
     }
 
-    public static <T extends Number & Comparable<T>> double calcSum(T[] arr, T elem) {
-//        Arrays.stream(arr).filter(element -> element.compareTo(elem) > 0).count()
-        double count = 0;
+    public static <T extends Number & Comparable<T>> Number calcSum(T[] arr, T elem) {
+        Number number = 0;
         for (T element : arr) {
             if (element.compareTo(elem) > 0) {
-                count += element.doubleValue();
+                number = addNumbers(number, element);
             }
         }
-        return count;
+        return number;
+    }
+
+    public static Number addNumbers(Number a, Number b) {
+        if (a instanceof Double || b instanceof Double) {
+            Double doubleResult = a.doubleValue() + b.doubleValue();
+            return new BigDecimal(doubleResult.toString()).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        } else if (a instanceof Float || b instanceof Float) {
+            return a.floatValue() + b.floatValue();
+        } else if (a instanceof Long || b instanceof Long) {
+            return a.longValue() + b.longValue();
+        } else {
+            return a.intValue() + b.intValue();
+        }
     }
 }
