@@ -51,8 +51,9 @@ and Unicode code unit is used for 16-bit char values that are code units of the 
         See code point type. (2) A value, or position, for a character, in any coded character set.
          */
 
+        String strCakeAndChinaSymbol = "a1\uD83C\uDF81\uD83C\uDF82\uD83C\uDF83\uD83C\uDF84\uD87E\uDC1A";
+        System.out.println(strCakeAndChinaSymbol);
 
-        String strCakeAndChinaSymbol = "\uD83C\uDF82\uD87E\uDC1A";
         char[] charsFromCake = strCakeAndChinaSymbol.toCharArray();
         for (char currentChar : charsFromCake) {
             System.out.println(currentChar);
@@ -68,20 +69,38 @@ and Unicode code unit is used for 16-bit char values that are code units of the 
 
         strCakeAndChinaSymbol.codePoints().forEach(System.out::println);
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append((char) 55356);
-        stringBuilder.append((char) 57218);
-        stringBuilder.append((char) 55422);
-        stringBuilder.append((char) 56346);
-        System.out.println(stringBuilder.toString());
-
         StringBuilder stringBuilder2 = new StringBuilder();
-        int cakeCodePoint = 0x1F382;
-        stringBuilder2.appendCodePoint(cakeCodePoint);
+        stringBuilder2.appendCodePoint((int)'a');
+        stringBuilder2.appendCodePoint((int)'1');
+        stringBuilder2.appendCodePoint(0x1F381);
+        stringBuilder2.appendCodePoint(0x1F382);
+        stringBuilder2.appendCodePoint(0x1F383);
+        stringBuilder2.appendCodePoint(0x1F384);
         stringBuilder2.appendCodePoint(0x2F81A);
         System.out.println(stringBuilder2.toString());
 
-        String result = strCakeAndChinaSymbol.codePoints().distinct()
+        String resultChar = strCakeAndChinaSymbol.chars().distinct()
+                .collect(new Supplier<StringBuilder>() {
+                             @Override
+                             public StringBuilder get() {
+                                 return new StringBuilder();
+                             }
+                         },
+                        new ObjIntConsumer<StringBuilder>() {
+                            @Override
+                            public void accept(StringBuilder stringBuilder1, int charPoint) {
+                                stringBuilder1.append((char)charPoint);
+                            }
+                        },
+                        new BiConsumer<StringBuilder, StringBuilder>() {
+                            @Override
+                            public void accept(StringBuilder stringBuilder1, StringBuilder s) {
+                                stringBuilder1.append(s);
+                            }
+                        }).toString();
+        System.out.println(resultChar);
+
+        String resultCodepoint = strCakeAndChinaSymbol.codePoints().distinct()
                 .collect(new Supplier<StringBuilder>() {
                              @Override
                              public StringBuilder get() {
@@ -100,7 +119,7 @@ and Unicode code unit is used for 16-bit char values that are code units of the 
                                 stringBuilder1.append(s);
                             }
                         }).toString();
-        System.out.println(result);
+        System.out.println(resultCodepoint);
     }
 
     @Override
