@@ -89,6 +89,13 @@ public class ClassWork {
         sortedSet.add("edi");
         sortedSet.add("aaaaaaaaaaaa");
 
+        char ch = '\u007f';
+
+
+        int cha = ch;
+        System.out.println(cha);
+
+
         sortedSet.forEach(System.out::println);
 
         List<String> strList = new ArrayList<>();
