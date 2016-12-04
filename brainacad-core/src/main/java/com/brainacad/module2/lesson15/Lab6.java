@@ -31,16 +31,23 @@ public class Lab6 {
         "сat".chars().forEach(System.out::print);
         System.out.println();
 
-        Scanner scanner = new Scanner(System.in);
-        String result = "";
-        while (scanner.hasNext()) {
-            String str = scanner.next();
-            if (str.equals("exit")) {
-                break;
-            } else {
-                result = result + myTranslator.translate(str) + " ";
-            }
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String text = sc.nextLine();
+        translateText(text, myTranslator);
+        System.out.println();
+    }
+
+    public static void fillDictionary(MyTranslator translator) {
+        translator.addNewWord("Cat", "Кот");
+        translator.addNewWord("mouse", "мышь");
+        translator.addNewWord("caught", "поймал");
+    }
+
+    public static void translateText(String text, MyTranslator translator) {
+        String[] words = text.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            System.out.print(translator.translate(words[i]) + " ");
         }
-        System.out.println(result);
     }
 }
