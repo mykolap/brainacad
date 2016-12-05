@@ -1,12 +1,12 @@
 package com.brainacad.module2.lesson17;
 
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 
 public class WriteThreadConcur extends Thread {
-    private ConcurrentHashMap<Integer, String> concurHashMap;
+    private Map<Integer, String> concurHashMap;
     private int numbers;
 
-    public WriteThreadConcur(ConcurrentHashMap<Integer, String> concurHashMap, int numbers) {
+    public WriteThreadConcur(Map<Integer, String> concurHashMap, int numbers) {
         this.concurHashMap = concurHashMap;
         this.numbers = numbers;
     }

@@ -1,6 +1,7 @@
 package com.brainacad.module2.lesson17;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Lab10 {
@@ -13,9 +14,9 @@ public class Lab10 {
     }
 
     public static void testWithHashMap() throws InterruptedException {
-        HashMap<Integer, String> hashMap = new HashMap<>();
-        WriteThreadMap[] wtc = new WriteThreadMap[NUMBERS_THREAD];
-        ReadThreadMap[] rtc = new ReadThreadMap[NUMBERS_THREAD];
+        Map<Integer, String> hashMap = new HashMap<>();
+        Thread[] wtc = new Thread[NUMBERS_THREAD];
+        Thread[] rtc = new Thread[NUMBERS_THREAD];
 
         for (int i = 0; i < NUMBERS_THREAD; i++) {
             wtc[i] = new WriteThreadMap(hashMap, NUMBERS_READ_WRITE);
@@ -41,10 +42,10 @@ public class Lab10 {
     }
 
     public static void testWithConcurrentHashMap() throws InterruptedException {
-        ConcurrentHashMap<Integer, String> concurrentHashMap
+        Map<Integer, String> concurrentHashMap
                 = new ConcurrentHashMap<>();
-        WriteThreadConcur[] wtc = new WriteThreadConcur[NUMBERS_THREAD];
-        ReadThreadConcur[] rtc = new ReadThreadConcur[NUMBERS_THREAD];
+        Thread[] wtc = new Thread[NUMBERS_THREAD];
+        Thread[] rtc = new Thread[NUMBERS_THREAD];
 
         for (int i = 0; i < NUMBERS_THREAD; i++) {
             wtc[i] = new WriteThreadConcur(concurrentHashMap,

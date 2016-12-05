@@ -1,12 +1,12 @@
 package com.brainacad.module2.lesson17;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class WriteThreadMap extends Thread {
-    private HashMap<Integer, String> hashMap;
+    private Map<Integer, String> hashMap;
     private int numbers;
 
-    public WriteThreadMap(HashMap<Integer, String> concurHashMap, int numbers) {
+    public WriteThreadMap(Map<Integer, String> concurHashMap, int numbers) {
         this.hashMap = concurHashMap;
         this.numbers = numbers;
     }
