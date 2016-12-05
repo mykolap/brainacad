@@ -1,9 +1,5 @@
 package com.brainacad.module2.lesson13;
 
-import java.util.function.BiConsumer;
-import java.util.function.ObjIntConsumer;
-import java.util.function.Supplier;
-
 /**
  * Created by Admin on 11/26/2016.
  */
@@ -80,45 +76,15 @@ and Unicode code unit is used for 16-bit char values that are code units of the 
         System.out.println(stringBuilder2.toString());
 
         String resultChar = strCakeAndChinaSymbol.chars().distinct()
-                .collect(new Supplier<StringBuilder>() {
-                             @Override
-                             public StringBuilder get() {
-                                 return new StringBuilder();
-                             }
-                         },
-                        new ObjIntConsumer<StringBuilder>() {
-                            @Override
-                            public void accept(StringBuilder stringBuilder1, int charPoint) {
-                                stringBuilder1.append((char)charPoint);
-                            }
-                        },
-                        new BiConsumer<StringBuilder, StringBuilder>() {
-                            @Override
-                            public void accept(StringBuilder stringBuilder1, StringBuilder s) {
-                                stringBuilder1.append(s);
-                            }
-                        }).toString();
+                .collect(StringBuilder::new,
+                        (stringBuilder1, charPoint) -> stringBuilder1.append((char) charPoint),
+                        StringBuilder::append).toString();
         System.out.println(resultChar);
 
         String resultCodepoint = strCakeAndChinaSymbol.codePoints().distinct()
-                .collect(new Supplier<StringBuilder>() {
-                             @Override
-                             public StringBuilder get() {
-                                 return new StringBuilder();
-                             }
-                         },
-                        new ObjIntConsumer<StringBuilder>() {
-                            @Override
-                            public void accept(StringBuilder stringBuilder1, int codePoint) {
-                                stringBuilder1.appendCodePoint(codePoint);
-                            }
-                        },
-                        new BiConsumer<StringBuilder, StringBuilder>() {
-                            @Override
-                            public void accept(StringBuilder stringBuilder1, StringBuilder s) {
-                                stringBuilder1.append(s);
-                            }
-                        }).toString();
+                .collect(StringBuilder::new,
+                        StringBuilder::appendCodePoint,
+                        StringBuilder::append).toString();
         System.out.println(resultCodepoint);
     }
 
