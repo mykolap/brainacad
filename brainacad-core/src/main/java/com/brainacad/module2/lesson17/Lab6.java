@@ -1,6 +1,7 @@
 package com.brainacad.module2.lesson17;
 
 import java.util.Arrays;
+import java.util.function.Consumer;
 
 /*
  1) Rewrite the DiningHall class so that after the makePizza() method is called 10 times,
@@ -17,9 +18,19 @@ public class Lab6 {
 
         Thread[] arrayStudents = new Thread[20];
         for (int i = 0; i < arrayStudents.length; i++) {
-            arrayStudents[i] = new Thread(diningHall::servePizza);
+            arrayStudents[i] = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    diningHall.servePizza();
+                }
+            });
         }
 
-        Arrays.stream(arrayStudents).forEach(Thread::start);
+        Arrays.stream(arrayStudents).forEach(new Consumer<Thread>() {
+            @Override
+            public void accept(Thread thread) {
+                thread.start();
+            }
+        });
     }
 }

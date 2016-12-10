@@ -10,9 +10,9 @@ public class RunningRaceStarter {
         CountDownLatch counter = new CountDownLatch(5);
 // count from 5 to 0 and then start the race
 // instantiate three runner threads
-        new Runner(counter, "Carl");
-        new Runner(counter, "Joe");
-        new Runner(counter, "Jack");
+        new Runner(counter, "Carl").start();
+        new Runner(counter, "Joe").start();
+        new Runner(counter, "Jack").start();
         System.out.println("Starting the countdown ");
         long countVal = counter.getCount();
         while (countVal > 0) {

@@ -14,25 +14,44 @@ import java.util.concurrent.ForkJoinPool;
  */
 public class Lab11 {
 
-    //    public static final int SIZE_OF_ARRAY = 1_000_000;
-    public static final int SIZE_OF_ARRAY = 5; //for test
-
     public static void main(String[] args) {
-        ForkJoinPool pool = new ForkJoinPool();
-        int[] myArray = createArrayInt(SIZE_OF_ARRAY);
-
-        System.out.println(Arrays.toString(myArray)); //for test
-
-        long sum = pool.invoke(new ComputeSumRecursiveTask(myArray, 0, SIZE_OF_ARRAY - 1));
-        System.out.println("Sum = " + sum);
+        long testSum = createPoolAndExecute(5, false,
+                true, 2);
+        long randomSum = createPoolAndExecute(1_000_000,
+                true, false, 20);
+        System.out.println("Test sum = " + testSum);
+        System.out.println("Test sum = " + randomSum);
     }
 
-    public static int[] createArrayInt(int size) {
+    public static long createPoolAndExecute(int sizeOfArray,
+                                            boolean isRandom,
+                                            boolean testMode,
+                                            int devideTo
+    ) {
+        ForkJoinPool pool = new ForkJoinPool();
+        int[] myArray = createArrayInt(sizeOfArray, isRandom);
+
+        if (testMode) {
+            System.out.println(Arrays.toString(myArray)); //for test
+        }
+
+        ComputeSumRecursiveTask computeSumRecursiveTask = new ComputeSumRecursiveTask(myArray,
+                0,
+                sizeOfArray - 1,
+                devideTo,
+                testMode);
+        return pool.invoke(computeSumRecursiveTask);
+    }
+
+    public static int[] createArrayInt(int size, boolean isRandom) {
         int[] array = new int[size];
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
-//            array[i] = random.nextInt(100);
-            array[i] = i; //for test
+            if (isRandom) {
+                array[i] = random.nextInt(100);
+            } else {
+                array[i] = i;
+            }
         }
         return array;
     }

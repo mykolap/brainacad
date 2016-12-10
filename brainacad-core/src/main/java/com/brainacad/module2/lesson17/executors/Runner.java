@@ -11,7 +11,6 @@ class Runner extends Thread {
         timer = cdl;
         this.setName(name);
         System.out.println(this.getName() + " ready and waiting for the count down to start");
-        start();
     }
 
     public void run() {
