@@ -1,5 +1,6 @@
 package com.brainacad.module2.lesson17;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 
@@ -13,14 +14,14 @@ import java.util.concurrent.ForkJoinPool;
  */
 public class Lab11 {
 
-    public static final int SIZE_OF_ARRAY = 1_000_000;
-    //public static final int SIZE_OF_ARRAY = 5; //for test
+    //    public static final int SIZE_OF_ARRAY = 1_000_000;
+    public static final int SIZE_OF_ARRAY = 5; //for test
 
     public static void main(String[] args) {
         ForkJoinPool pool = new ForkJoinPool();
         int[] myArray = createArrayInt(SIZE_OF_ARRAY);
 
-        //System.out.println(Arrays.toString(myArray)); for test
+        System.out.println(Arrays.toString(myArray)); //for test
 
         long sum = pool.invoke(new ComputeSumRecursiveTask(myArray, 0, SIZE_OF_ARRAY - 1));
         System.out.println("Sum = " + sum);
@@ -30,8 +31,8 @@ public class Lab11 {
         int[] array = new int[size];
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(100);
-            //array[i] = i; //for test
+//            array[i] = random.nextInt(100);
+            array[i] = i; //for test
         }
         return array;
     }
