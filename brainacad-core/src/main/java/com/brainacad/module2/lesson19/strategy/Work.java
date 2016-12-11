@@ -18,5 +18,8 @@ public class Work {
 
         context.setStrategy(new MultOperation());
         System.out.println("33 * 22 = " + context.executeStrategy(num1, num2));
+
+        context.setStrategy((num11, num21) -> num11 / num21);
+        System.out.println("33 / 22 = " + context.executeStrategy(num1, num2));
     }
 }

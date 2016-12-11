@@ -1,8 +1,5 @@
 package com.brainacad.module2.lesson19.decorator;
 
-/**
- * Created by Alex on 12/11/2016.
- */
 public class ShapeDecorator implements Shape {
     protected Shape decoratedShape;
 
@@ -10,9 +7,13 @@ public class ShapeDecorator implements Shape {
         this.decoratedShape = decoratedShape;
     }
 
+    @Override
+    public void setColor(String color) {
+        decoratedShape.setColor(color);
+    }
 
     @Override
     public void draw() {
-        decoratedShape.draw();
+    decoratedShape.draw();
     }
 }

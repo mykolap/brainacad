@@ -7,6 +7,11 @@ import com.brainacad.module2.lesson19.decorator.Shape;
  */
 public class Square implements Shape {
     @Override
+    public void setColor(String color) {
+
+    }
+
+    @Override
     public void draw() {
         System.out.println("draw square");
     }

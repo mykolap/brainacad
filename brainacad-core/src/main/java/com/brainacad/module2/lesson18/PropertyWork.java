@@ -26,6 +26,8 @@ public class PropertyWork {
         }
 
         Locale locale = Locale.getDefault();
+        System.out.println(locale.getCountry());
+        System.out.println(locale.getLanguage());
 
         NumberFormat numberFormat = NumberFormat.getInstance();
         String str = numberFormat.format(1254645785144.25);
@@ -40,7 +42,6 @@ public class PropertyWork {
         numberFormat = NumberFormat.getInstance(Locale.ITALY);
         System.out.println(numberFormat.format(1254645785144.25));
 
-
         numberFormat = NumberFormat.getCurrencyInstance(Locale.CHINESE);
         System.out.println(numberFormat.format(1254645785144.25));
 
@@ -50,7 +51,7 @@ public class PropertyWork {
         numberFormat = NumberFormat.getCurrencyInstance(Locale.ITALY);
         System.out.println(numberFormat.format(1254645785144.25));
 
-        Locale locale1 = new Locale("ru", "RU");
+        Locale locale1 = new Locale("ru", "US");
         numberFormat = NumberFormat.getCurrencyInstance(locale1);
         System.out.println(numberFormat.format(1254645785144.25));
 
@@ -69,15 +70,19 @@ public class PropertyWork {
 
         Runtime runtime = Runtime.getRuntime();
         System.out.println(runtime.freeMemory());
+        System.out.println(runtime.totalMemory());
 
-        int[] a = new int[1000000];
+        int[] a = new int[10000000];
 
         System.out.println(runtime.freeMemory());
+        System.out.println(runtime.totalMemory());
 
+        /*
         try {
-            runtime.exec("notepad.exe");
+            runtime.exec("notesssspad.exe");
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
     }
 }
