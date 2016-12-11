@@ -23,7 +23,9 @@ public class ClassWork {
 
         System.out.println(bi3);
 
-        System.out.println(bi.multiply(bi2).multiply(bi3));
+        BigInteger multiply = bi.multiply(bi2).multiply(bi3);
+
+        System.out.println(multiply);
 
         BigDecimal bigDecimal = new BigDecimal("0.1");
         BigDecimal bigMax = new BigDecimal("1.1");
@@ -64,7 +66,9 @@ public class ClassWork {
 
         System.out.println(properties.get("db.name"));
 
-
+        int a = 2;
+        int v = ++a + ++a * ++a;
+        System.out.println(v);
 
     }
 
